@@ -4,9 +4,7 @@ import "dotenv/config";
 
 const app = express();
 
-const PORT = 8080;
-
-app.use(cors);
+const PORT = 3000;
 
 //middlewares
 app.use(
