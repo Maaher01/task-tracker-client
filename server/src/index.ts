@@ -1,24 +1,22 @@
-import express from "express";
+import Express, { Application } from "express";
 import cors from "cors";
 import "dotenv/config";
 
-const app = express();
+import userRouter from "./routes/user.routes";
+import { connectToDatabase } from "./config/db";
+
+const app: Application = Express();
 
 const PORT = 3000;
 
 //middlewares
-app.use(
-	cors({
-		credentials: true,
-		origin: "http://localhost:4200",
-	})
-);
-app.use(express.json());
+app.use(cors({ credentials: true, origin: "http://localhost:4200" }));
+app.use(Express.json());
 
-app.get("/", (req, res) => {
-	return res.json({ up: true });
-});
+//Routes
+app.use("/api/user", userRouter);
 
 app.listen(PORT, async () => {
-	console.log(`Sever has started at ${PORT}`);
+	await connectToDatabase();
+	console.info(`Sever has started at http://localhost:${PORT}`);
 });
