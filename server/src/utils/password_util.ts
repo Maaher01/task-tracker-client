@@ -4,6 +4,6 @@ export function hashPassword(password: string) {
 	return bcrypt.hash(password, 10);
 }
 
-export function comparePassword(password: string, hashPassword: string) {
-	return bcrypt.compare(password, hashPassword);
+export function comparePassword(password: string, hashedPassword: string) {
+	return bcrypt.compare(password, hashedPassword);
 }

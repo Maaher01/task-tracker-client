@@ -17,7 +17,7 @@ export const createUser = async (
 	password: string
 ) => {
 	const rows = await client.query(
-		"INSERT INTO users (firstname, lasname, email, password) VALUES ($1, $2, $3, $4) RETURNING *;",
+		"INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4) RETURNING *;",
 		[firstname, lastname, email, password]
 	);
 	if (rows) {

@@ -1,18 +1,19 @@
 import { Request, Response } from "express";
-import { User } from "../models/users";
+import { User } from "../models/user";
 
 import { comparePassword, hashPassword } from "../utils/password_util";
 import { getUser, createUser, updateUserPassword } from "../utils/user_util";
 
 export const signup = async (req: Request, res: Response) => {
 	const { firstname, lastname, email, password } = req.body;
-
 	try {
-		let user = await getUser(email);
+		let user = (await getUser(email)) as User;
+		console.log(user);
 		if (user) {
-			return res
-				.status(403)
-				.json({ status: "Failed", error: "Email is already in use" });
+			return res.status(403).json({
+				status: "Failed",
+				error: "Email is already in use",
+			});
 		}
 		const hashedPassword = await hashPassword(password);
 		await createUser(firstname, lastname, email, hashedPassword);
@@ -30,7 +31,6 @@ export const signup = async (req: Request, res: Response) => {
 
 export const login = async (req: Request, res: Response) => {
 	const { email, password } = req.body;
-
 	try {
 		const user = (await getUser(email)) as User;
 		if (!user) {
@@ -60,9 +60,8 @@ export const login = async (req: Request, res: Response) => {
 
 export const forgotPassword = async (req: Request, res: Response) => {
 	const { email, newPassword } = req.body;
-
 	try {
-		let user = await getUser(email);
+		let user = (await getUser(email)) as User;
 		if (!user) {
 			return res.status(404).json({
 				status: "failed",
