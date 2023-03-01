@@ -9,7 +9,7 @@ import {
 const router = Router();
 
 router.get("/", displayUserTasks);
-router.post("/add", addTask);
+router.post("/", addTask);
 router.delete("/:id", taskDelete);
 router.put("/", taskEdit);
 
