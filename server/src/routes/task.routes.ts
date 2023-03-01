@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {
-	displayTasks,
+	displayUserTasks,
 	taskEdit,
 	addTask,
 	taskDelete,
@@ -8,7 +8,7 @@ import {
 
 const router = Router();
 
-router.get("/", displayTasks);
+router.get("/", displayUserTasks);
 router.post("/add", addTask);
 router.delete("/:id", taskDelete);
 router.put("/", taskEdit);

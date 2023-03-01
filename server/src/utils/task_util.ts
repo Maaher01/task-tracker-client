@@ -9,8 +9,11 @@ export const getTaskById = async (id: number) => {
 	return null;
 };
 
-export const getTasks = async () => {
-	const rows = await client.query("SELECT title, content, status FROM tasks;");
+export const getUserTasks = async (userid: number) => {
+	const rows = await client.query(
+		"SELECT title, content, status FROM tasks WHERE userid=$1;",
+		[userid]
+	);
 	if (rows) {
 		return rows;
 	}

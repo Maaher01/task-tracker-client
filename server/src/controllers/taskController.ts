@@ -3,19 +3,29 @@ import { Task } from "../models/task";
 
 import {
 	getTaskById,
-	getTasks,
+	getUserTasks,
 	createTask,
 	editTask,
 	deleteTask,
 } from "../utils/task_util";
 
-export const displayTasks = async (res: Response) => {
+export const displayUserTasks = async (req: Request, res: Response) => {
+	const { userid } = req.body;
+	console.log(req.body);
 	try {
-		(await getTasks()) as Task;
+		const userTasks = (await getUserTasks(userid)) as Task;
+		if (!userTasks) {
+			return res.status(404).json({
+				status: "failed",
+				message: "User does not exist",
+			});
+		}
 		return res.status(200).json({
 			status: "Success",
+			data: userTasks,
 		});
 	} catch (error) {
+		console.log(error);
 		return res.status(500).json({
 			status: "failed",
 			error: "Unexpected error occured.",
