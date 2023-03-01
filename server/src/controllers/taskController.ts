@@ -11,7 +11,6 @@ import {
 
 export const displayUserTasks = async (req: Request, res: Response) => {
 	const { userid } = req.body;
-	console.log(req.body);
 	try {
 		const userTasks = (await getUserTasks(userid)) as Task;
 		if (!userTasks) {
@@ -25,7 +24,6 @@ export const displayUserTasks = async (req: Request, res: Response) => {
 			data: userTasks,
 		});
 	} catch (error) {
-		console.log(error);
 		return res.status(500).json({
 			status: "failed",
 			error: "Unexpected error occured.",
@@ -55,9 +53,9 @@ export const taskEdit = async (req: Request, res: Response) => {
 };
 
 export const addTask = async (req: Request, res: Response) => {
-	const { title, content, status } = req.body;
+	const { title, content, status, userid } = req.body;
 	try {
-		(await createTask(title, content, status)) as Task;
+		(await createTask(title, content, status, userid)) as Task;
 		return res.status(200).json({
 			status: "Success",
 		});

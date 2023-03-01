@@ -8,7 +8,6 @@ export const signup = async (req: Request, res: Response) => {
 	const { firstname, lastname, email, password } = req.body;
 	try {
 		let user = (await getUser(email)) as User;
-		console.log(user);
 		if (user) {
 			return res.status(403).json({
 				status: "Failed",
@@ -21,7 +20,6 @@ export const signup = async (req: Request, res: Response) => {
 			status: "Success",
 		});
 	} catch (err: any) {
-		console.error(err);
 		res.status(500).json({
 			status: "failed",
 			error: err.message,
@@ -50,7 +48,6 @@ export const login = async (req: Request, res: Response) => {
 			status: "Success",
 		});
 	} catch (err: any) {
-		console.error(err);
 		res.status(500).json({
 			status: "failed",
 			error: err.message,
