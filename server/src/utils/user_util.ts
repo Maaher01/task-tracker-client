@@ -1,7 +1,7 @@
 import { client } from "../config/db";
 
 export const getUser = async (email: string) => {
-	const rows = await client.query("SELECT * FROM users WHERE email=$1;", [
+	const { rows } = await client.query("SELECT * FROM users WHERE email=$1;", [
 		email,
 	]);
 	if (rows) {
@@ -16,7 +16,7 @@ export const createUser = async (
 	email: string,
 	password: string
 ) => {
-	const rows = await client.query(
+	const { rows } = await client.query(
 		"INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4) RETURNING *;",
 		[firstname, lastname, email, password]
 	);
@@ -35,7 +35,7 @@ export const updateUserPassword = async (
 		[newPassword, email]
 	);
 	if (rows) {
-		return rows;
+		return rows[0];
 	}
 	return null;
 };

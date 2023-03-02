@@ -1,7 +1,7 @@
 import { client } from "../config/db";
 
 export const getTaskById = async (id: number) => {
-	const rows = await client.query("SELECT * FROM tasks WHERE id=$1;", [id]);
+	const { rows } = await client.query("SELECT * FROM tasks WHERE id=$1;", [id]);
 	if (rows) {
 		return rows[0];
 	}
@@ -9,7 +9,7 @@ export const getTaskById = async (id: number) => {
 };
 
 export const getUserTasks = async (userid: number) => {
-	const rows = await client.query(
+	const { rows } = await client.query(
 		"SELECT title, content, status FROM tasks WHERE userid=$1;",
 		[userid]
 	);
@@ -25,7 +25,7 @@ export const createTask = async (
 	status: string,
 	userid: number
 ) => {
-	const rows = await client.query(
+	const { rows } = await client.query(
 		"INSERT INTO tasks (title, content, status, userid) VALUES ($1, $2, $3, $4);",
 		[title, content, status, userid]
 	);
@@ -41,7 +41,7 @@ export const editTask = async (
 	status: string,
 	id: number
 ) => {
-	const rows = await client.query(
+	const { rows } = await client.query(
 		"UPDATE tasks SET title=$1, content=$2, status=$3 WHERE id=$4;",
 		[title, content, status, id]
 	);
@@ -52,7 +52,7 @@ export const editTask = async (
 };
 
 export const deleteTask = async (id: number) => {
-	const rows = await client.query("DELETE FROM tasks WHERE id=$1;", [id]);
+	const { rows } = await client.query("DELETE FROM tasks WHERE id=$1;", [id]);
 	if (rows) {
 		return rows;
 	}
