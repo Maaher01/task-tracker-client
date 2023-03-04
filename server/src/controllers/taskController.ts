@@ -21,7 +21,7 @@ export const displayUserTasks = async (req: Request, res: Response) => {
 		}
 		return res.status(200).json({
 			status: "Success",
-			data: userTasks,
+			data: { ...userTasks },
 		});
 	} catch (error) {
 		return res.status(500).json({
@@ -43,6 +43,7 @@ export const taskEdit = async (req: Request, res: Response) => {
 		}
 		return res.status(200).json({
 			status: "Success",
+			data: { ...response },
 		});
 	} catch (error: any) {
 		res.status(500).json({
@@ -55,9 +56,10 @@ export const taskEdit = async (req: Request, res: Response) => {
 export const addTask = async (req: Request, res: Response) => {
 	const { title, content, status, userid } = req.body;
 	try {
-		(await createTask(title, content, status, userid)) as Task;
+		const task = (await createTask(title, content, status, userid)) as Task;
 		return res.status(200).json({
 			status: "Success",
+			data: { ...task },
 		});
 	} catch (error: any) {
 		res.status(500).json({

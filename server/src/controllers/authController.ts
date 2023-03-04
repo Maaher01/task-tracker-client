@@ -4,10 +4,10 @@ import { User } from "../models/user";
 import { comparePassword, hashPassword } from "../utils/password_util";
 import { getUser, createUser, updateUserPassword } from "../utils/user_util";
 
-export const signup = async (req: Request, res: Response) => {
+export const signup = async (req: Request<{}, {}, User>, res: Response) => {
 	const { firstname, lastname, email, password } = req.body;
 	try {
-		let user = (await getUser(email)) as User;
+		let user = await getUser(email);
 		if (user) {
 			return res.status(403).json({
 				status: "Failed",
@@ -15,9 +15,15 @@ export const signup = async (req: Request, res: Response) => {
 			});
 		}
 		const hashedPassword = await hashPassword(password);
-		await createUser(firstname, lastname, email, hashedPassword);
+		user = await createUser(firstname, lastname, email, hashedPassword);
 		return res.status(200).json({
 			status: "Success",
+			data: {
+				id: user?.id,
+				firstname,
+				lastname,
+				email,
+			},
 		});
 	} catch (err: any) {
 		res.status(500).json({
@@ -27,10 +33,10 @@ export const signup = async (req: Request, res: Response) => {
 	}
 };
 
-export const login = async (req: Request, res: Response) => {
+export const login = async (req: Request<{}, {}, User>, res: Response) => {
 	const { email, password } = req.body;
 	try {
-		const user = (await getUser(email)) as User;
+		const user = await getUser(email);
 		if (!user) {
 			return res.status(404).json({
 				status: "failed",
@@ -46,6 +52,12 @@ export const login = async (req: Request, res: Response) => {
 		}
 		return res.status(200).json({
 			status: "Success",
+			data: {
+				firstname: user.firstname,
+				lastname: user.lastname,
+				email,
+				id: user.id,
+			},
 		});
 	} catch (err: any) {
 		res.status(500).json({
@@ -58,7 +70,7 @@ export const login = async (req: Request, res: Response) => {
 export const forgotPassword = async (req: Request, res: Response) => {
 	const { email, newPassword } = req.body;
 	try {
-		let user = (await getUser(email)) as User;
+		let user = await getUser(email);
 		if (!user) {
 			return res.status(404).json({
 				status: "failed",
