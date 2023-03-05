@@ -15,6 +15,9 @@ import { LoginModule } from './login/login.module';
 import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
 import { RegisterModule } from './register/register.module';
 
+//Angular Material imports
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,7 @@ import { RegisterModule } from './register/register.module';
     LoginModule,
     ForgotPasswordModule,
     RegisterModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

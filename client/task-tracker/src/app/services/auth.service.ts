@@ -1,9 +1,65 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError, catchError, tap, BehaviorSubject } from 'rxjs';
+import { User } from '../models/user.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  private authUrl = 'http://localhost:3000/api/user';
+  private currentUserSubject: BehaviorSubject<User | null>;
+  public currentUser$: Observable<User | null>;
 
-  constructor() { }
+  constructor(private http: HttpClient, public router: Router) {
+    this.currentUserSubject = new BehaviorSubject(
+      this.getUserFromLocalStorage()
+    );
+    this.currentUser$ = this.currentUserSubject.asObservable();
+  }
+
+  register(user: any): Observable<any> {
+    let signUpUrl = `${this.authUrl}/register`;
+    return this.http.post(signUpUrl, user).pipe(
+      tap((res: any) => {
+        this.setUser(res.data.user);
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  login(user: any): Observable<any> {
+    let loginUrl = `${this.authUrl}/login`;
+    return this.http.post<any>(loginUrl, user).pipe(
+      tap((res: any) => {
+        this.setUser(res.data.user);
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  // logout() {
+  //   this.lo
+  // }
+
+  setUser(user: any): void {
+    localStorage.setItem('user', JSON.stringify(user));
+    this.currentUserSubject.next(user);
+  }
+
+  getUserFromLocalStorage() {
+    const token = localStorage.getItem('user');
+    if (token) {
+      return JSON.parse(token);
+    }
+    return null;
+  }
+
+  private handleError(response: HttpErrorResponse) {
+    let errorResponse: any = {};
+    errorResponse['status'] = response.status;
+    errorResponse['message'] = response.error.error;
+    return throwError(() => errorResponse);
+  }
 }

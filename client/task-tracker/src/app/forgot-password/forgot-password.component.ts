@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+  styleUrls: ['./forgot-password.component.scss'],
 })
-export class ForgotPasswordComponent implements OnInit {
+export class ForgotPasswordComponent {
+  public errorResponse!: string;
+  public successResponse!: string;
 
-  constructor() { }
+  resetPasswordForm = this.fb.group({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(7),
+      Validators.maxLength(11),
+    ]),
+  });
 
-  ngOnInit(): void {
-  }
-
+  constructor(private fb: FormBuilder, private router: Router) {}
 }
