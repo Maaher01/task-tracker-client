@@ -39,13 +39,31 @@ export class AuthService {
     );
   }
 
-  // logout() {
-  //   this.lo
-  // }
+  logout() {
+    localStorage.removeItem('user');
+    this.currentUserSubject.next(null);
+    this.router.navigateByUrl('/user/login');
+  }
+
+  resetUserPassword(payload: any) {
+    let resetPasswordUrl = `${this.authUrl}/forgotpassword`;
+    return this.http.put<any>(resetPasswordUrl, payload).pipe(
+      tap((res: any) => {
+        localStorage.removeItem('user');
+        this.router.navigateByUrl('/user/login');
+      }),
+      catchError(this.handleError)
+    );
+  }
 
   setUser(user: any): void {
     localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSubject.next(user);
+  }
+
+  get isLoggedIn(): Boolean {
+    const user = this.getUserFromLocalStorage();
+    return user ? true : false;
   }
 
   getUserFromLocalStorage() {

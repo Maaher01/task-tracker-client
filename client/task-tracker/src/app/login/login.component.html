@@ -1,7 +1,39 @@
-<form [formGroup]="loginForm">
-    <p>Login</p>
-    <label for="email">Email</label>
-    <input type="email" placeholder="Enter email..." formControlName="email" id="email" name="email">
-    <label for="password">Password</label>
-    <input type="password" placeholder="Enter password..." formControlName="password" id="password" name="password">
-</form>
+<div class="page">
+    <div class="info">
+        <div class="heading">
+            <p>Logging in to</p>
+            <div class="icon">
+                <img src="assets/icons/logo.png">
+                <p class="title">Task Tracker</p>
+                <p>is simple</p>
+            </div>
+            <div class="mascot">
+                <p>If you don't have an account <span>Register</span> now</p>
+                <img src="assets/img/mascot.png">
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        <form [formGroup]="loginForm">
+            <p>Login</p>
+            <div class="fields">
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input class="input" type="email" placeholder="Enter email..." formControlName="email" id="email"
+                        name="email">
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input class="input" type="password" placeholder="Enter password..." formControlName="password"
+                        id="password" name="password">
+                </div>
+                <div>
+                    <strong>{{ errorResponse }}</strong>
+                </div>
+                <div class="login">
+                    <button class="button">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

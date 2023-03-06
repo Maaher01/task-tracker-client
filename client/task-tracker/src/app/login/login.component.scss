@@ -1,0 +1,72 @@
+.page {
+  display: flex;
+
+  .form {
+    padding: 64px 176px;
+
+    form {
+      p {
+        font-size: xx-large;
+        font-weight: 500;
+      }
+
+      .fields {
+        display: flex;
+        flex-direction: column;
+
+        .field {
+          display: flex;
+          flex-direction: column;
+          padding: 10px 0px;
+
+          .button {
+            padding: 10px 0px;
+          }
+
+          .input {
+            border-radius: 8px;
+            padding: 18px 24px;
+            background-color: #f0efff;
+          }
+        }
+
+        .login {
+          padding: 18px 0px;
+
+          .button {
+            background-color: #4d47c3;
+            padding: 18px 24px;
+            font-size: medium;
+            color: white;
+            border-radius: 8px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .info {
+    flex: 1;
+
+    .heading {
+      padding: 128px 176px 0px;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-size: 40px;
+      }
+
+      .icon {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .mascot {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+}
