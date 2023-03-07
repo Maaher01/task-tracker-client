@@ -1,4 +1,4 @@
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" (ngSubmit)="registerUser()">
     <p>Sign Up</p>
     <label for="firstname">First Name</label>
     <input type="text" placeholder="Enter First Name..." formControlName="firstname" id="firstname" name="firstname">
@@ -52,5 +52,11 @@
         <mat-error *ngIf="registerForm.controls['password']?.hasError('maxlength')">
             Password cannot have more than 11 characters
         </mat-error>
+    </div>
+    <div *ngIf="errorResponse">
+        <strong>{{ errorResponse }}</strong>
+    </div>
+    <div>
+        <button [disabled]="registerForm.invalid">Register</button>
     </div>
 </form>

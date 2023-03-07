@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -29,5 +30,21 @@ export class RegisterComponent {
     ]),
   });
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {}
+
+  registerUser() {
+    this.authService.register(this.registerForm.value).subscribe({
+      next: () => {
+        this.registerForm.reset();
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        this.errorResponse = err.message;
+      },
+    });
+  }
 }

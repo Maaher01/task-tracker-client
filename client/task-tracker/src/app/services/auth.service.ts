@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   register(user: any): Observable<any> {
-    let signUpUrl = `${this.authUrl}/register`;
+    let signUpUrl = `${this.authUrl}/signup`;
     return this.http.post(signUpUrl, user).pipe(
       tap((res: any) => {
         this.setUser(res.data.user);
@@ -47,7 +47,7 @@ export class AuthService {
 
   resetUserPassword(payload: any) {
     let resetPasswordUrl = `${this.authUrl}/forgotpassword`;
-    return this.http.put<any>(resetPasswordUrl, payload).pipe(
+    return this.http.patch<any>(resetPasswordUrl, payload).pipe(
       tap((res: any) => {
         localStorage.removeItem('user');
         this.router.navigateByUrl('/user/login');

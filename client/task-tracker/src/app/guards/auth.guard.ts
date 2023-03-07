@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
     | UrlTree {
     const currentUrl = state.url;
     const isLoggedIn = this.authService.isLoggedIn;
-    const AUTH_URLS = ['/user/register', '/user/login'];
+    const AUTH_URLS = ['/user/signup', '/user/login'];
 
     if (AUTH_URLS.includes(currentUrl) && isLoggedIn) {
       this.router.navigateByUrl('/');

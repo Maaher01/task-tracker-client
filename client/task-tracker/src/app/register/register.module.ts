@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [
   {
-    path: 'user/register',
+    path: 'user/signup',
     component: RegisterComponent,
   },
 ];

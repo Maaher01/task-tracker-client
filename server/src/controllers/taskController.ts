@@ -21,9 +21,9 @@ export const displayUserTasks = async (req: Request, res: Response) => {
 		}
 		return res.status(200).json({
 			status: "Success",
-			data: { ...userTasks },
+			data: userTasks,
 		});
-	} catch (error) {
+	} catch {
 		return res.status(500).json({
 			status: "failed",
 			error: "Unexpected error occured.",

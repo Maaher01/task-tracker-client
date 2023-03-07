@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="form">
-        <form [formGroup]="loginForm">
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
             <p>Login</p>
             <div class="fields">
                 <div class="field">
@@ -27,11 +27,11 @@
                     <input class="input" type="password" placeholder="Enter password..." formControlName="password"
                         id="password" name="password">
                 </div>
-                <div>
+                <div *ngIf="errorResponse">
                     <strong>{{ errorResponse }}</strong>
                 </div>
                 <div class="login">
-                    <button class="button">Login</button>
+                    <button class="button" [disabled]="loginForm.invalid">Login</button>
                 </div>
             </div>
         </form>

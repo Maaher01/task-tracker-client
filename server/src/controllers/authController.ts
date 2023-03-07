@@ -16,14 +16,18 @@ export const signup = async (req: Request<{}, {}, User>, res: Response) => {
 		}
 		const hashedPassword = await hashPassword(password);
 		user = await createUser(firstname, lastname, email, hashedPassword);
+		const UserResponse = {
+			id: user?.id,
+			firstname: user?.firstname,
+			lastname: user?.lastname,
+			email: user?.email,
+			password: user?.password,
+			createdat: user?.createdat,
+			updatedat: user?.updatedat,
+		};
 		return res.status(200).json({
 			status: "Success",
-			data: {
-				id: user?.id,
-				firstname,
-				lastname,
-				email,
-			},
+			data: { user: UserResponse },
 		});
 	} catch (err: any) {
 		res.status(500).json({
@@ -50,14 +54,14 @@ export const login = async (req: Request<{}, {}, User>, res: Response) => {
 				error: "Incorrect password",
 			});
 		}
+		const userResponse = {
+			id: user.id,
+			firstname: user.firstname,
+			lastname: user.lastname,
+		};
 		return res.status(200).json({
 			status: "Success",
-			data: {
-				firstname: user.firstname,
-				lastname: user.lastname,
-				email,
-				id: user.id,
-			},
+			data: { user: userResponse },
 		});
 	} catch (err: any) {
 		res.status(500).json({
@@ -79,10 +83,17 @@ export const forgotPassword = async (req: Request, res: Response) => {
 		}
 		const hashedPassword = await hashPassword(newPassword);
 		await updateUserPassword(user.email, hashedPassword);
+		const userResponse = {
+			id: user.id,
+			firstname: user.firstname,
+			lastname: user.lastname,
+			email: user.email,
+		};
 		return res.status(200).json({
 			status: "Success",
+			error: { user: userResponse },
 		});
-	} catch (err: any) {
+	} catch (error) {
 		res.status(500).json({
 			status: "failed",
 			error: "Failed to change password please try again later",

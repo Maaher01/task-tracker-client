@@ -8,8 +8,8 @@ import {
 
 const router = Router();
 
-router.get("/", displayUserTasks);
-router.post("/", addTask);
+router.post("/", displayUserTasks);
+router.post("/add", addTask);
 router.delete("/:id", taskDelete);
 router.put("/", taskEdit);
 
