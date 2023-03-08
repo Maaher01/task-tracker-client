@@ -1,10 +1,68 @@
-<div>
-    <div *ngFor="let task of userTasks$ | async">
-        <div>
-            {{ task.title }}
+<main>
+  <div>
+    <button mat-button>+ Add Task</button>
+  </div>
+  <div class="todo">
+    <h2>To do</h2>
+    <div class="cards">
+      <mat-card *ngFor="let task of userTasks$ | async">
+        <div *ngIf="task.status === 'To do'">
+          <mat-card-header>
+            <mat-card-title>
+              {{ task.title }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{ task.content }}
+            </mat-card-subtitle>
+          </mat-card-header>
         </div>
-        <div>
-            {{ task.content }}
-        </div>
+        <mat-card-actions>
+          <button mat-button class="update">Update</button>
+          <button mat-button class="delete">Delete</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
-</div>
+  </div>
+  <div class="ongoing">
+    <h2>Ongoing</h2>
+    <div class="cards">
+      <mat-card *ngFor="let task of userTasks$ | async">
+        <div *ngIf="task.status === 'ongoing'">
+          <mat-card-header>
+            <mat-card-title>
+              {{ task.title }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{ task.content }}
+            </mat-card-subtitle>
+          </mat-card-header>
+        </div>
+        <mat-card-actions>
+          <button mat-button class="update">Update</button>
+          <button mat-button class="delete">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <div class="done">
+    <h2>Done</h2>
+    <div class="cards">
+      <mat-card *ngFor="let task of userTasks$ | async">
+        <div *ngIf="task.status === 'done'">
+          <mat-card-header>
+            <mat-card-title>
+              {{ task.title }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{ task.content }}
+            </mat-card-subtitle>
+          </mat-card-header>
+        </div>
+        <mat-card-actions>
+          <button mat-button class="update">Update</button>
+          <button mat-button class="delete">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</main>

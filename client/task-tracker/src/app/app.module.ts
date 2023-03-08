@@ -17,6 +17,7 @@ import { RegisterModule } from './register/register.module';
 
 //Angular Material imports
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     ForgotPasswordModule,
     RegisterModule,
     MatToolbarModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
