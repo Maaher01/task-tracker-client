@@ -1,10 +1,21 @@
 <mat-toolbar>
-    <div>
-        <img src="assets/icons/logo.png">
-        <span class="title">Task Tracker</span>
+  <div class="w-full flex flex-row justify-between items-center">
+    <div class="flex items-center gap-2">
+      <img class="w-8 h-8" src="assets/icons/logo.png" />
+      <span class="text-lg text-purple-600 font-medium tracking-wider"
+        >Task Tracker</span
+      >
     </div>
-    <div>
-        <span>{{ (authService.currentUser$ | async)?.firstname }}</span>
-        <button *ngIf="this.authService.isLoggedIn" (click)="logout()">Logout</button>
+    <div
+      class="flex items-center gap-4"
+      *ngIf="authService.currentUser$ | async; let user"
+    >
+      <span class="text-base font-normal text-gray-600">{{
+        user.firstname + " " + user.lastname
+      }}</span>
+      <button mat-stroked-button class="text-gray-900" (click)="logout()">
+        Logout
+      </button>
     </div>
+  </div>
 </mat-toolbar>

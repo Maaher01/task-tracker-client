@@ -1,17 +1,17 @@
-main {
-  background-color: #f9f8f8;
+button {
+  background-color: #4d47c3;
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  border-radius: 4px;
+}
 
-  button {
-    background-color: #4d47c3;
-    padding: 6px 6px;
-    font-size: 15px;
-    color: white;
-    border-radius: 4px;
-  }
+.content {
+  display: flex;
+  flex-direction: row;
 
   .cards {
-    display: grid;
-    gap: 24px;
     padding: 15px 25px 80px;
 
     mat-card {
@@ -25,6 +25,18 @@ main {
         color: #b6b6b6;
         font-weight: 400;
         font-size: 14px;
+      }
+
+      .update {
+        background-color: #bff1df;
+        color: #2eb67d;
+        font-weight: 500;
+      }
+
+      .delete {
+        background-color: #f87171;
+        color: #b91c1c;
+        font-weight: 500;
       }
     }
   }

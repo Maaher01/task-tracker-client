@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'user/signup',
     component: RegisterComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

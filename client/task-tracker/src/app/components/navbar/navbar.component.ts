@@ -9,10 +9,6 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent {
   constructor(public authService: AuthService) {}
 
-  isLoggedIn() {
-    this.authService.isLoggedIn;
-  }
-
   logout() {
     this.authService.logout();
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, Observable, map, throwError } from 'rxjs';
+import { catchError, Observable, map, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +15,38 @@ export class TaskService {
       map((res) => res.data),
       catchError(this.handleError)
     );
+  }
+
+  addTask(
+    title: string,
+    content: string,
+    status: string,
+    id: number
+  ): Observable<any> {
+    return this.http
+      .post<any>(`${this.taskUrl}/add`, {
+        title: title,
+        content: content,
+        status: status,
+        userid: id,
+      })
+      .pipe(catchError(this.handleError));
+  }
+
+  editTask(
+    title: string,
+    content: string,
+    status: string,
+    id: number
+  ): Observable<any> {
+    return this.http
+      .put<any>(this.taskUrl, {
+        title: title,
+        content: content,
+        status: status,
+        id: id,
+      })
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(response: HttpErrorResponse) {

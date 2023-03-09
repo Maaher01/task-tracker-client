@@ -3,21 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-//Component imports
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-
-//Module imports
+import { AddTaskComponent } from './components/add-task/add-task.component';
 import { LoginModule } from './login/login.module';
 import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
 import { RegisterModule } from './register/register.module';
-
-//Angular Material imports
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EditTaskComponent } from './components/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,8 @@ import { MatCardModule } from '@angular/material/card';
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
+    AddTaskComponent,
+    EditTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,11 @@ import { MatCardModule } from '@angular/material/card';
     RegisterModule,
     MatToolbarModule,
     MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
