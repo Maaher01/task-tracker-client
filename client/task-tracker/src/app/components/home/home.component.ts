@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { TaskService } from 'src/app/services/task.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddTaskComponent } from '../add-task/add-task.component';
 import { EditTaskComponent } from '../edit-task/edit-task.component';
+import { DeleteTaskComponent } from '../delete-task/delete-task.component';
 
 @Component({
   selector: 'app-home',
@@ -55,5 +56,19 @@ export class HomeComponent implements OnInit {
     };
 
     this.dialog.open(EditTaskComponent, dialogConfig);
+  }
+
+  openDialogToDelete() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+      heading: 'Confirmation',
+      body: 'Are you sure you want to delete this task?',
+    };
+
+    this.dialog.open(DeleteTaskComponent, dialogConfig);
   }
 }
