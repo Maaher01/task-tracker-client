@@ -13,6 +13,11 @@ export class AddTaskComponent implements OnInit {
   heading: string;
   public currentUser: any;
   public errorResponse!: string;
+  public statusList = [
+    { id: 'To Do', value: 'To Do' },
+    { id: 'Ongoing', value: 'Ongoing' },
+    { id: 'Done', value: 'Done' },
+  ];
 
   addTaskForm = this.fb.group({
     title: new FormControl('', [Validators.required]),

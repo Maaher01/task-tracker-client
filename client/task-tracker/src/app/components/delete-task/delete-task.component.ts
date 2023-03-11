@@ -14,14 +14,23 @@ export class DeleteTaskComponent {
 
   constructor(
     private dialogRef: MatDialogRef<DeleteTaskComponent>,
-    @Inject(MAT_DIALOG_DATA) data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     public taskService: TaskService
   ) {
     this.heading = data.heading;
     this.body = data.body;
   }
 
-  deleteTask() {}
+  deleteTask(id: number) {
+    this.taskService.deleteTask(id).subscribe({
+      next: () => {
+        this.dialogRef.close();
+      },
+      error: (err) => {
+        this.errorResponse = err.message;
+      },
+    });
+  }
 
   close() {
     this.dialogRef.close();

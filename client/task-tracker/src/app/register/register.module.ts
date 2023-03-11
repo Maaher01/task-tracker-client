@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register.component';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MaterialModule } from '../material.module';
 import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
+    MaterialModule,
   ],
   exports: [RouterModule],
 })

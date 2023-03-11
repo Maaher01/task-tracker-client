@@ -1,82 +1,113 @@
-<div class="container">
-  <div class="add-button-container">
-    <button mat-button (click)="openDialogToAdd()">+ Add Task</button>
-  </div>
-  <div class="content">
-    <div class="todo">
-      <h2>To do</h2>
-      <div class="cards">
-        <div *ngFor="let task of userTasks$ | async">
-          <mat-card *ngIf="task.status === 'To do'">
-            <mat-card-header>
-              <mat-card-title>
-                {{ task.title }}
-              </mat-card-title>
-              <mat-card-subtitle>
-                {{ task.content }}
-              </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-actions>
-              <button mat-button class="update" (click)="openDialogToEdit()">
-                Update
-              </button>
-              <button mat-button class="delete" (click)="openDialogToDelete()">
-                Delete
-              </button>
-            </mat-card-actions>
-          </mat-card>
+<mat-drawer-container class="example-container">
+  <!-- <mat-drawer mode="side" opened>Drawer content</mat-drawer> -->
+  <mat-drawer-content>
+    <div class="container">
+      <div class="add-button-container">
+        <button mat-button (click)="openDialogToAdd()">
+          <mat-icon>add</mat-icon> Add Task
+        </button>
+      </div>
+      <div class="content">
+        <div class="todo">
+          <h2>To do</h2>
+          <div class="cards">
+            <div *ngFor="let task of userTasks$ | async">
+              <mat-card *ngIf="task.status === 'To Do'">
+                <mat-card-header>
+                  <mat-card-title>
+                    {{ task.title }}
+                  </mat-card-title>
+                  <mat-card-subtitle>
+                    {{ task.content }}
+                  </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-actions>
+                  <button
+                    mat-raised-button
+                    class="update"
+                    (click)="openDialogToEdit(task)"
+                  >
+                    Update
+                  </button>
+                  <button
+                    mat-raised-button
+                    class="delete"
+                    (click)="openDialogToDelete(task)"
+                  >
+                    Delete
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+        <div class="ongoing">
+          <h2>Ongoing</h2>
+          <div class="cards">
+            <div *ngFor="let task of userTasks$ | async">
+              <mat-card *ngIf="task.status === 'Ongoing'">
+                <mat-card-header>
+                  <mat-card-title>
+                    {{ task.title }}
+                  </mat-card-title>
+                  <mat-card-subtitle>
+                    {{ task.content }}
+                  </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-actions>
+                  <button
+                    mat-raised-button
+                    class="update"
+                    (click)="openDialogToEdit(task)"
+                  >
+                    Update
+                  </button>
+                  <button
+                    mat-raised-button
+                    class="delete"
+                    (click)="openDialogToDelete(task)"
+                  >
+                    Delete
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+        <div class="done">
+          <h2>Done</h2>
+          <div class="cards">
+            <div *ngFor="let task of userTasks$ | async">
+              <mat-card *ngIf="task.status === 'Done'">
+                <mat-card-header>
+                  <mat-card-title>
+                    {{ task.title }}
+                  </mat-card-title>
+                  <mat-card-subtitle>
+                    {{ task.content }}
+                  </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-actions>
+                  <button
+                    mat-raised-button
+                    class="update"
+                    (click)="openDialogToEdit(task)"
+                  >
+                    Update
+                  </button>
+                  <button
+                    mat-raised-button
+                    class="delete"
+                    (click)="openDialogToDelete(task)"
+                  >
+                    Delete
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="ongoing">
-      <h2>Ongoing</h2>
-      <div class="cards">
-        <div *ngFor="let task of userTasks$ | async">
-          <mat-card *ngIf="task.status === 'ongoing'">
-            <mat-card-header>
-              <mat-card-title>
-                {{ task.title }}
-              </mat-card-title>
-              <mat-card-subtitle>
-                {{ task.content }}
-              </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-actions>
-              <button mat-button class="update" (click)="openDialogToEdit()">
-                Update
-              </button>
-              <button mat-button class="delete" (click)="openDialogToDelete()">
-                Delete
-              </button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-      </div>
-    </div>
-    <div class="done">
-      <h2>Done</h2>
-      <div class="cards">
-        <div *ngFor="let task of userTasks$ | async">
-          <mat-card *ngIf="task.status === 'done'">
-            <mat-card-header>
-              <mat-card-title>
-                {{ task.title }}
-              </mat-card-title>
-              <mat-card-subtitle>
-                {{ task.content }}
-              </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-actions>
-              <button mat-button class="update" (click)="openDialogToEdit()">
-                Update
-              </button>
-              <button mat-button class="delete" (click)="openDialogToDelete()">
-                Delete
-              </button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </div></mat-drawer-content
+  >
+</mat-drawer-container>

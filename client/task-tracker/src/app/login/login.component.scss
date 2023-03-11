@@ -1,8 +1,9 @@
-.page {
+.content {
   display: flex;
 
-  .form {
+  .form-content {
     padding: 64px 176px;
+    width: 50%;
 
     form {
       p {
@@ -22,12 +23,6 @@
           .button {
             padding: 10px 0px;
           }
-
-          .input {
-            border-radius: 8px;
-            padding: 18px 24px;
-            background-color: #f0efff;
-          }
         }
 
         .login {
@@ -46,8 +41,9 @@
     }
   }
 
-  .info {
+  .side {
     flex: 1;
+    width: 50%;
 
     .heading {
       padding: 128px 176px 0px;
@@ -55,17 +51,38 @@
       flex-direction: column;
 
       p {
-        font-size: 40px;
+        font-size: 50px;
+        font-weight: 600;
       }
 
       .icon {
         display: flex;
         flex-direction: row;
+        padding: 40px 0px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        p {
+          font-size: xx-large;
+          font-weight: 500;
+
+          span {
+            font-weight: bold;
+          }
+        }
       }
 
       .mascot {
         display: flex;
         flex-direction: row;
+        font-size: medium;
+
+        .register-router {
+          cursor: pointer;
+          color: #4d47c3;
+          font-weight: bold;
+        }
       }
     }
   }

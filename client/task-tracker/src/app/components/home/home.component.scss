@@ -25,6 +25,7 @@
 
     .todo {
       width: 33%;
+      border-radius: 6px;
 
       .cards {
         mat-card {
@@ -42,6 +43,10 @@
           }
 
           mat-card-actions {
+            padding: 18px 16px;
+            display: flex;
+            gap: 6px;
+
             .update {
               background-color: #bff1df;
               color: #2eb67d;
@@ -83,6 +88,10 @@
           }
 
           mat-card-actions {
+            padding: 18px 16px;
+            display: flex;
+            gap: 6px;
+
             .update {
               background-color: #bff1df;
               color: #2eb67d;
@@ -124,6 +133,10 @@
           }
 
           mat-card-actions {
+            padding: 18px 16px;
+            display: flex;
+            gap: 6px;
+
             .update {
               background-color: #bff1df;
               color: #2eb67d;

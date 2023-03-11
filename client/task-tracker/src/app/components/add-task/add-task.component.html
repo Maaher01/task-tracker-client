@@ -1,9 +1,14 @@
-<h2 mat-dialog-title>{{ heading }}</h2>
+<div class="dialog-header">
+  <h2 mat-dialog-title>{{ heading }}</h2>
+  <button (click)="close()"><span>&times;</span></button>
+</div>
 <mat-dialog-content [formGroup]="addTaskForm">
   <mat-form-field>
+    <mat-label>Title</mat-label>
     <input matInput placeholder="Enter task title" formControlName="title" />
   </mat-form-field>
   <mat-form-field>
+    <mat-label>Content</mat-label>
     <input
       matInput
       placeholder="Enter task content"
@@ -11,10 +16,27 @@
     />
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Enter task status" formControlName="status" />
+    <mat-label>Status</mat-label>
+    <!-- <input matInput placeholder="Enter task status" formControlName="status" /> -->
+    <mat-select placeholder="Choose task status..." formControlName="status">
+      <mat-option *ngFor="let status of statusList" [value]="status.id">
+        {{ status.value }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button class="mat-raised-button" (click)="addTask()">Add Task</button>
-  <button class="mat-raised-button" (click)="close()">Cancel</button>
+  <div class="dialog-btn">
+    <button
+      class="mat-raised-button"
+      id="add-button"
+      [disabled]="addTaskForm.invalid"
+      (click)="addTask()"
+    >
+      Add Task
+    </button>
+    <button class="mat-raised-button" id="cancel-button" (click)="close()">
+      Cancel
+    </button>
+  </div>
 </mat-dialog-actions>

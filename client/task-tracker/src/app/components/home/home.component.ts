@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     this.dialog.open(AddTaskComponent, dialogConfig);
   }
 
-  openDialogToEdit() {
+  openDialogToEdit(task: Task) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -53,12 +53,13 @@ export class HomeComponent implements OnInit {
 
     dialogConfig.data = {
       heading: 'Edit Task',
+      task: task,
     };
 
     this.dialog.open(EditTaskComponent, dialogConfig);
   }
 
-  openDialogToDelete() {
+  openDialogToDelete(task: Task) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -67,6 +68,7 @@ export class HomeComponent implements OnInit {
     dialogConfig.data = {
       heading: 'Confirmation',
       body: 'Are you sure you want to delete this task?',
+      task: task,
     };
 
     this.dialog.open(DeleteTaskComponent, dialogConfig);

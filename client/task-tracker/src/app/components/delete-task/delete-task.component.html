@@ -1,8 +1,21 @@
-<h2 mat-dialog-title>{{ heading }}</h2>
+<div class="dialog-header">
+  <h2 mat-dialog-title>{{ heading }}</h2>
+  <button (click)="close()"><span>&times;</span></button>
+</div>
 <mat-dialog-content>
   <h3>{{ body }}</h3>
   <mat-dialog-actions>
-    <button class="mat-raised-button" (click)="deleteTask()">Delete</button>
-    <button class="mat-raised-button" (click)="close()">Cancel</button>
+    <div class="dialog-btn">
+      <button
+        class="mat-raised-button"
+        id="delete-button"
+        (click)="deleteTask(data.task.id)"
+      >
+        Delete
+      </button>
+      <button class="mat-raised-button" id="cancel-button" (click)="close()">
+        Cancel
+      </button>
+    </div>
   </mat-dialog-actions>
 </mat-dialog-content>

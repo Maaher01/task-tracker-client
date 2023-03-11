@@ -32,7 +32,8 @@ export const displayUserTasks = async (req: Request, res: Response) => {
 };
 
 export const taskEdit = async (req: Request, res: Response) => {
-	const { title, content, status, id } = req.body;
+	const { title, content, status } = req.body;
+	const { id } = req.params;
 	try {
 		const response = (await editTask(title, content, status, id)) as Task;
 		if (!response) {
@@ -70,7 +71,7 @@ export const addTask = async (req: Request, res: Response) => {
 };
 
 export const taskDelete = async (req: Request, res: Response) => {
-	const { id } = req.body;
+	const { id } = req.params;
 	try {
 		(await getTaskById(id)) as Task;
 		const response = (await deleteTask(id)) as Task;
@@ -82,6 +83,7 @@ export const taskDelete = async (req: Request, res: Response) => {
 		}
 		return res.status(200).json({
 			status: "Success",
+			data: { id: response.id },
 		});
 	} catch (error: any) {
 		res.status(500).json({

@@ -1,0 +1,46 @@
+.dialog-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    background-color: #f87171;
+    color: white;
+    padding: 4px 10px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+}
+
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  height: 200px;
+}
+
+.dialog-btn {
+  display: flex;
+  gap: 8px;
+
+  #add-button {
+    background-color: #e0f5fd;
+    color: #64cbf4;
+    padding: 6px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+
+  #cancel-button {
+    background-color: #f87171;
+    color: #b91c1c;
+    padding: 6px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+}

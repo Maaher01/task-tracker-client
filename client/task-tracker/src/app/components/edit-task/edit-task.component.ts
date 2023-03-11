@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TaskService } from 'src/app/services/task.service';
@@ -9,10 +9,14 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.scss'],
 })
-export class EditTaskComponent {
+export class EditTaskComponent implements OnInit {
   heading: string;
-  public currentUser: any;
   public errorResponse!: string;
+  public statusList = [
+    { id: 'To do', value: 'To Do' },
+    { id: 'ongoing', value: 'Ongoing' },
+    { id: 'done', value: 'Done' },
+  ];
 
   editTaskForm = this.fb.group({
     title: new FormControl('', [Validators.required]),
@@ -20,17 +24,38 @@ export class EditTaskComponent {
     status: new FormControl('', [Validators.required]),
   });
 
+  ngOnInit(): void {
+    this.editTaskForm.patchValue({
+      title: this.data.task.title,
+      content: this.data.task.content,
+      status: this.data.task.status,
+    });
+  }
+
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<EditTaskComponent>,
-    @Inject(MAT_DIALOG_DATA) data: any,
-    public taskService: TaskService,
-    public authService: AuthService
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public taskService: TaskService
   ) {
     this.heading = data.heading;
   }
 
-  editTask() {}
+  editTask(id: number) {
+    const payload = {
+      title: this.editTaskForm.controls['title'].value!,
+      content: this.editTaskForm.controls['content'].value!,
+      status: this.editTaskForm.controls['status'].value!,
+    };
+    this.taskService.editTask(payload, id).subscribe({
+      next: () => {
+        this.dialogRef.close();
+      },
+      error: (err) => {
+        this.errorResponse = err.message;
+      },
+    });
+  }
 
   close() {
     this.dialogRef.close();
