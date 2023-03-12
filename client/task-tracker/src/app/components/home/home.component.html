@@ -3,111 +3,31 @@
   <mat-drawer-content>
     <div class="container">
       <div class="add-button-container">
-        <button mat-button (click)="openDialogToAdd()">
-          <mat-icon>add</mat-icon> Add Task
+        <button mat-raised-button color="primary" (click)="openDialogToAdd()">
+          <mat-icon>+</mat-icon>
+          Add Task
         </button>
       </div>
-      <div class="content">
-        <div class="todo">
-          <h2>To do</h2>
-          <div class="cards">
-            <div *ngFor="let task of userTasks$ | async">
-              <mat-card *ngIf="task.status === 'To Do'">
-                <mat-card-header>
-                  <mat-card-title>
-                    {{ task.title }}
-                  </mat-card-title>
-                  <mat-card-subtitle>
-                    {{ task.content }}
-                  </mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-actions>
-                  <button
-                    mat-raised-button
-                    class="update"
-                    (click)="openDialogToEdit(task)"
-                  >
-                    Update
-                  </button>
-                  <button
-                    mat-raised-button
-                    class="delete"
-                    (click)="openDialogToDelete(task)"
-                  >
-                    Delete
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-            </div>
-          </div>
-        </div>
-        <div class="ongoing">
-          <h2>Ongoing</h2>
-          <div class="cards">
-            <div *ngFor="let task of userTasks$ | async">
-              <mat-card *ngIf="task.status === 'Ongoing'">
-                <mat-card-header>
-                  <mat-card-title>
-                    {{ task.title }}
-                  </mat-card-title>
-                  <mat-card-subtitle>
-                    {{ task.content }}
-                  </mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-actions>
-                  <button
-                    mat-raised-button
-                    class="update"
-                    (click)="openDialogToEdit(task)"
-                  >
-                    Update
-                  </button>
-                  <button
-                    mat-raised-button
-                    class="delete"
-                    (click)="openDialogToDelete(task)"
-                  >
-                    Delete
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-            </div>
-          </div>
-        </div>
-        <div class="done">
-          <h2>Done</h2>
-          <div class="cards">
-            <div *ngFor="let task of userTasks$ | async">
-              <mat-card *ngIf="task.status === 'Done'">
-                <mat-card-header>
-                  <mat-card-title>
-                    {{ task.title }}
-                  </mat-card-title>
-                  <mat-card-subtitle>
-                    {{ task.content }}
-                  </mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-actions>
-                  <button
-                    mat-raised-button
-                    class="update"
-                    (click)="openDialogToEdit(task)"
-                  >
-                    Update
-                  </button>
-                  <button
-                    mat-raised-button
-                    class="delete"
-                    (click)="openDialogToDelete(task)"
-                  >
-                    Delete
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div></mat-drawer-content
-  >
+      <mat-grid-list cols="3">
+        <mat-grid-tile>
+          <app-tasks
+            [tasks]="(taskService.todoTasks$ | async)!"
+            [title]="'To Do'"
+          ></app-tasks>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <app-tasks
+            [tasks]="(taskService.ongoingTasks$ | async)!"
+            [title]="'Ongoing'"
+          ></app-tasks>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <app-tasks
+            [tasks]="(taskService.doneTasks$ | async)!"
+            [title]="'Done'"
+          ></app-tasks>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </mat-drawer-content>
 </mat-drawer-container>

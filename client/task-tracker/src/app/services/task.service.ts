@@ -1,25 +1,46 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, Observable, map, throwError } from 'rxjs';
+import { catchError, Observable, tap, throwError, BehaviorSubject } from 'rxjs';
 import { Task } from '../models/task.interface';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
   private taskUrl = 'http://localhost:3000/api/task';
-  public currentUser: any;
+  private todoTasksSubject = new BehaviorSubject<Task[]>([]);
+  public todoTasks$!: Observable<Task[]>;
+  private ongoingTasksSubject = new BehaviorSubject<Task[]>([]);
+  public ongoingTasks$!: Observable<Task[]>;
+  private doneTasksSubject = new BehaviorSubject<Task[]>([]);
+  public doneTasks$!: Observable<Task[]>;
 
-  constructor(private http: HttpClient, private authService: AuthService) {
-    this.authService.currentUser$.subscribe(
-      (user) => (this.currentUser = user)
-    );
+  constructor(private http: HttpClient) {
+    this.todoTasks$ = this.todoTasksSubject.asObservable();
+    this.ongoingTasks$ = this.ongoingTasksSubject.asObservable();
+    this.doneTasks$ = this.doneTasksSubject.asObservable();
   }
 
-  getUserTasks(id: number): Observable<any> {
+  getUserTasks(id: number): Observable<Task[]> {
     return this.http.post<any>(this.taskUrl, { userid: id }).pipe(
-      map((res) => res.data),
+      tap((res) => {
+        const tasks = res.data;
+        let todoTasks: Task[] = [];
+        let ongoingTasks: Task[] = [];
+        let doneTasks: Task[] = [];
+        tasks.forEach((task: Task) => {
+          if (task.status === 'To Do') {
+            todoTasks.push(task);
+          } else if (task.status === 'Ongoing') {
+            ongoingTasks.push(task);
+          } else if (task.status === 'Done') {
+            doneTasks.push(task);
+          }
+        });
+        this.todoTasksSubject.next(todoTasks);
+        this.ongoingTasksSubject.next(ongoingTasks);
+        this.doneTasksSubject.next(doneTasks);
+      }),
       catchError(this.handleError)
     );
   }

@@ -9,6 +9,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { EditTaskComponent } from './components/edit-task/edit-task.component';
 import { DeleteTaskComponent } from './components/delete-task/delete-task.component';
+import { TaskComponent } from './components/task/task.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 import { LoginModule } from './login/login.module';
 import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
 import { RegisterModule } from './register/register.module';
@@ -24,6 +26,8 @@ import { MaterialModule } from './material.module';
     AddTaskComponent,
     EditTaskComponent,
     DeleteTaskComponent,
+    TaskComponent,
+    TasksComponent,
   ],
   imports: [
     BrowserModule,
