@@ -31,7 +31,6 @@ import { MaterialModule } from './material.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     LoginModule,
     ForgotPasswordModule,
@@ -39,6 +38,7 @@ import { MaterialModule } from './material.module';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

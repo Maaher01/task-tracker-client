@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [],
@@ -22,6 +23,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatIconModule,
     MatFormFieldModule,
     MatGridListModule,
+    DragDropModule,
   ],
 })
 export class MaterialModule {}
