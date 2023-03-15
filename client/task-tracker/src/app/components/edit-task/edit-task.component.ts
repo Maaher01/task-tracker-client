@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TaskService } from 'src/app/services/task.service';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-edit-task',
@@ -13,9 +12,9 @@ export class EditTaskComponent implements OnInit {
   heading: string;
   public errorResponse!: string;
   public statusList = [
-    { id: 'To do', value: 'To Do' },
-    { id: 'ongoing', value: 'Ongoing' },
-    { id: 'done', value: 'Done' },
+    { id: 'To Do', value: 'To Do' },
+    { id: 'Ongoing', value: 'Ongoing' },
+    { id: 'Done', value: 'Done' },
   ];
 
   editTaskForm = this.fb.group({

@@ -1,8 +1,6 @@
-<div class="todo">
+<div class="card">
   <h2>{{ title }}</h2>
-  <div class="cards">
-    <ng-container *ngFor="let task of tasks">
-      <app-task [task]="task"></app-task>
-    </ng-container>
-  </div>
+  <ng-container *ngFor="let task of tasks">
+    <app-task [task]="task"></app-task>
+  </ng-container>
 </div>

@@ -1,33 +1,28 @@
-<mat-drawer-container class="example-container">
-  <!-- <mat-drawer mode="side" opened>Drawer content</mat-drawer> -->
-  <mat-drawer-content>
-    <div class="container">
-      <div class="add-button-container">
-        <button mat-raised-button color="primary" (click)="openDialogToAdd()">
-          <mat-icon>+</mat-icon>
-          Add Task
-        </button>
-      </div>
-      <mat-grid-list cols="3">
-        <mat-grid-tile>
-          <app-tasks
-            [tasks]="(taskService.todoTasks$ | async)!"
-            [title]="'To Do'"
-          ></app-tasks>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <app-tasks
-            [tasks]="(taskService.ongoingTasks$ | async)!"
-            [title]="'Ongoing'"
-          ></app-tasks>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <app-tasks
-            [tasks]="(taskService.doneTasks$ | async)!"
-            [title]="'Done'"
-          ></app-tasks>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+<div class="container">
+  <div class="add-button-container">
+    <button mat-raised-button color="primary" (click)="openDialogToAdd()">
+      <mat-icon>add</mat-icon>
+      New Task
+    </button>
+  </div>
+  <mat-grid-list cols="3">
+    <mat-grid-tile>
+      <app-tasks
+        [tasks]="(taskService.todoTasks$ | async)!"
+        [title]="'To Do'"
+      ></app-tasks>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-tasks
+        [tasks]="(taskService.ongoingTasks$ | async)!"
+        [title]="'Ongoing'"
+      ></app-tasks>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-tasks
+        [tasks]="(taskService.doneTasks$ | async)!"
+        [title]="'Done'"
+      ></app-tasks>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -2,161 +2,89 @@
   min-height: 100vh;
   min-width: 100%;
   background-color: #f9f8f8;
-
-  .add-button-container {
-    padding: 30px 15px;
-
-    button {
-      background-color: #4d47c3;
-      padding: 10px 16px;
-      font-size: 15px;
-      font-weight: 500;
-      color: white;
-      border-radius: 8px;
-      float: right;
-    }
-  }
-
-  .content {
-    display: flex;
-    flex-direction: row;
-    padding: 0px 32px;
-    gap: 24px;
-
-    .todo {
-      width: 33%;
-      border-radius: 6px;
-
-      .cards {
-        mat-card {
-          background-color: white;
-          border-radius: 6px;
-
-          mat-card-title {
-            color: black;
-          }
-
-          mat-card-subtitle {
-            color: #b6b6b6;
-            font-weight: 400;
-            font-size: 14px;
-          }
-
-          mat-card-actions {
-            padding: 18px 16px;
-            display: flex;
-            gap: 6px;
-
-            .update {
-              background-color: #bff1df;
-              color: #2eb67d;
-              padding: 6px 10px;
-              font-size: 15px;
-              font-weight: 500;
-              border-radius: 4px;
-            }
-
-            .delete {
-              background-color: #f87171;
-              color: #b91c1c;
-              padding: 6px 10px;
-              font-size: 15px;
-              font-weight: 500;
-              border-radius: 4px;
-            }
-          }
-        }
-      }
-    }
-
-    .ongoing {
-      width: 33%;
-      border-radius: 6px;
-
-      .cards {
-        mat-card {
-          background-color: white;
-
-          mat-card-title {
-            color: black;
-          }
-
-          mat-card-subtitle {
-            color: #b6b6b6;
-            font-weight: 400;
-            font-size: 14px;
-          }
-
-          mat-card-actions {
-            padding: 18px 16px;
-            display: flex;
-            gap: 6px;
-
-            .update {
-              background-color: #bff1df;
-              color: #2eb67d;
-              padding: 6px 10px;
-              font-size: 15px;
-              font-weight: 500;
-              border-radius: 4px;
-            }
-
-            .delete {
-              background-color: #f87171;
-              color: #b91c1c;
-              padding: 6px 10px;
-              font-size: 15px;
-              font-weight: 500;
-              border-radius: 4px;
-            }
-          }
-        }
-      }
-    }
-
-    .done {
-      width: 33%;
-      border-radius: 6px;
-
-      .cards {
-        mat-card {
-          background-color: white;
-
-          mat-card-title {
-            color: black;
-          }
-
-          mat-card-subtitle {
-            color: #b6b6b6;
-            font-weight: 400;
-            font-size: 14px;
-          }
-
-          mat-card-actions {
-            padding: 18px 16px;
-            display: flex;
-            gap: 6px;
-
-            .update {
-              background-color: #bff1df;
-              color: #2eb67d;
-              padding: 6px 10px;
-              font-size: 15px;
-              font-weight: 500;
-              border-radius: 4px;
-            }
-
-            .delete {
-              background-color: #f87171;
-              color: #b91c1c;
-              padding: 6px 10px;
-              font-size: 15px;
-              font-weight: 500;
-              border-radius: 4px;
-            }
-          }
-        }
-      }
-    }
-  }
 }
+
+.add-button-container {
+  padding: 32px 64px;
+}
+
+button {
+  background-color: #6c5dd3;
+  padding: 9px 16px;
+  font-size: medium;
+  font-weight: 500;
+  color: white;
+  border-radius: 8px;
+  float: right;
+  display: flex;
+  gap: 1px;
+  align-items: center;
+}
+
+//   mat-drawer-content {
+//     display: flex;
+//     flex-direction: row;
+//     padding: 0px 32px;
+//     gap: 24px;
+
+//       .cards {
+//         mat-card {
+//           background-color: white;
+//           border-radius: 6px;
+
+//           mat-card-title {
+//             color: black;
+//           }
+
+//           mat-card-subtitle {
+//             color: #b6b6b6;
+//             font-weight: 400;
+//             font-size: 14px;
+//           }
+//         }
+//       }
+//     }
+
+//     mat-grid-list {
+//       width: 33%;
+//       border-radius: 6px;
+
+//       .cards {
+//         mat-card {
+//           background-color: white;
+
+//           mat-card-title {
+//             color: black;
+//           }
+
+//           mat-card-subtitle {
+//             color: #b6b6b6;
+//             font-weight: 400;
+//             font-size: 14px;
+//           }
+//         }
+//       }
+//     }
+
+//     mat-grid-tile {
+//       width: 33%;
+//       border-radius: 6px;
+
+//       .cards {
+//         mat-card {
+//           background-color: white;
+
+//           mat-card-title {
+//             color: black;
+//           }
+
+//           mat-card-subtitle {
+//             color: #b6b6b6;
+//             font-weight: 400;
+//             font-size: 14px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

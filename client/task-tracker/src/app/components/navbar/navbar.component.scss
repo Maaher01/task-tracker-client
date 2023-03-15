@@ -1,40 +1,37 @@
 mat-toolbar {
   background-color: white;
+  padding: 0px 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .content {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 1px;
+.title {
+  color: black;
+  padding: 0px 8px;
+  font-weight: bold;
+  font-size: x-large;
+}
 
-      .title {
-        color: black;
-        padding: 0px 8px;
-        font-weight: bold;
-        font-size: x-large;
-      }
-    }
+.userinfo {
+  color: black;
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
 
-    .userinfo {
-      color: black;
-      font-size: medium;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-
-      .logout {
-        background-color: #4d47c3;
-        padding: 3px 20px;
-        font-size: 15px;
-        color: white;
-        border-radius: 8px;
-      }
-    }
-  }
+.logout {
+  background-color: #6c5dd3;
+  padding: 3px 20px;
+  font-size: 15px;
+  color: white;
+  border-radius: 8px;
 }

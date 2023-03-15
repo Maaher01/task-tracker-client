@@ -1,0 +1,23 @@
+mat-card-actions {
+  padding: 18px 16px;
+  display: flex;
+  gap: 6px;
+}
+
+.update {
+  background-color: #bff1df;
+  color: #2eb67d;
+  padding: 6px 10px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.delete {
+  background-color: #f87171;
+  color: #b91c1c;
+  padding: 6px 10px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 4px;
+}
