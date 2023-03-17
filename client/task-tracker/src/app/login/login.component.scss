@@ -1,89 +1,104 @@
 .content {
   display: flex;
+}
 
-  .form-content {
-    padding: 64px 176px;
-    width: 50%;
+.form-content {
+  padding: 150px 225px;
+  width: 50%;
+}
 
-    form {
-      p {
-        font-size: xx-large;
-        font-weight: 500;
-      }
+.fields {
+  display: grid;
+  gap: 16px;
+}
 
-      .fields {
-        display: flex;
-        flex-direction: column;
+.router-container {
+  text-align: center;
+}
 
-        .field {
-          display: flex;
-          flex-direction: column;
-          padding: 10px 0px;
+.router-text {
+  font-size: 14px;
+  font-weight: 800;
+}
 
-          .button {
-            padding: 10px 0px;
-          }
-        }
+.button-container {
+  padding: 18px 0px;
+}
 
-        .login {
-          padding: 18px 0px;
+.button {
+  background-color: #4d47c3;
+  padding: 18px 24px;
+  font-size: medium;
+  color: white;
+  border-radius: 8px;
+  width: 100%;
+}
 
-          .button {
-            background-color: #4d47c3;
-            padding: 18px 24px;
-            font-size: medium;
-            color: white;
-            border-radius: 8px;
-            width: 100%;
-          }
-        }
-      }
-    }
-  }
+.response-container {
+  width: 100%;
+  background-color: #f8c9ca;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 8px 0px;
+}
 
-  .side {
-    flex: 1;
-    width: 50%;
+.response {
+  color: #b91c1c;
+}
 
-    .heading {
-      padding: 128px 176px 0px;
-      display: flex;
-      flex-direction: column;
+.side-content {
+  flex: 1;
+  padding: 225px 0px 0px 200px;
+  width: 50%;
+}
 
-      p {
-        font-size: 50px;
-        font-weight: 600;
-      }
+.heading {
+  display: flex;
+  flex-direction: column;
+}
 
-      .icon {
-        display: flex;
-        flex-direction: row;
-        padding: 40px 0px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+p {
+  font-size: 48px;
+  font-weight: 600;
+}
 
-        p {
-          font-size: xx-large;
-          font-weight: 500;
+.icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 40px 0px;
+  gap: 8px;
+}
 
-          span {
-            font-weight: bold;
-          }
-        }
-      }
+.title {
+  font-size: 36px;
+  font-weight: 500;
+}
 
-      .mascot {
-        display: flex;
-        flex-direction: row;
-        font-size: medium;
+.op-text {
+  font-size: xx-large;
+  font-weight: 500;
+  padding: 24px 0px;
+}
 
-        .register-router {
-          cursor: pointer;
-          color: #4d47c3;
-          font-weight: bold;
-        }
-      }
-    }
-  }
+span {
+  font-weight: bold;
+}
+
+.promo {
+  display: flex;
+  flex-direction: row;
+  font-size: medium;
+  font-weight: 500;
+}
+
+.promo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.router {
+  cursor: pointer;
+  color: #4d47c3;
+  font-weight: bold;
 }

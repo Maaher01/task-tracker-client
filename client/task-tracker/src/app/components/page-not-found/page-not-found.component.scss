@@ -1,0 +1,29 @@
+section {
+  display: flex;
+  flex-direction: column;
+  padding: 250px 0px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 32px;
+  font-weight: 800;
+  font-size: 72px;
+}
+
+p {
+  font-size: 20px;
+}
+
+div {
+  padding: 32px;
+}
+
+a {
+  background-color: #6c5dd3;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  border-radius: 8px;
+}

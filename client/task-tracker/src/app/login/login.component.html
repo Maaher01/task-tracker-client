@@ -1,29 +1,28 @@
 <div class="content">
-  <div class="side">
-    <div class="heading">
-      <p>Logging in to</p>
-      <div class="icon">
-        <img src="assets/icons/logo.png" />
-        <p class="title"><span>Task Tracker</span> is simple</p>
-      </div>
-      <div class="mascot">
+  <div class="side-content">
+    <p>Logging in to</p>
+    <div class="icon">
+      <img src="assets/icons/logo.png" />
+      <p class="title"><span>Task Tracker</span>&nbsp;is simple</p>
+    </div>
+    <div class="promo">
+      <div class="promo-text">
         If you don't have an account
-        <span class="register-router" [routerLink]="['/user/signup']"
+        <span class="router" [routerLink]="['/user/signup']"
           >Register now!</span
         >
-        <img src="assets/img/mascot.png" />
       </div>
+      <img src="assets/img/mascot.png" />
     </div>
   </div>
   <div class="form-content">
     <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
-      <p>Login</p>
+      <p class="op-text">Login</p>
       <div class="fields">
-        <mat-form-field class="field">
+        <mat-form-field appearance="outline">
           <mat-label for="email">Email</mat-label>
           <input
             matInput
-            class="input"
             type="email"
             placeholder="Enter email..."
             formControlName="email"
@@ -31,11 +30,10 @@
             name="email"
           />
         </mat-form-field>
-        <mat-form-field class="field">
+        <mat-form-field appearance="outline">
           <mat-label for="password">Password</mat-label>
           <input
             matInput
-            class="input"
             type="password"
             placeholder="Enter password..."
             formControlName="password"
@@ -43,10 +41,15 @@
             name="password"
           />
         </mat-form-field>
-        <div *ngIf="errorResponse">
-          <strong>{{ errorResponse }}</strong>
+        <div class="response-container" *ngIf="errorResponse">
+          <strong class="response">{{ errorResponse }}</strong>
         </div>
-        <div class="login">
+        <div class="router-container">
+          <a class="router-text" [routerLink]="['/user/forgotpassword']"
+            >Forgot password?</a
+          >
+        </div>
+        <div class="button-container">
           <button
             mat-raised-button
             class="button"
