@@ -2,10 +2,11 @@
   min-height: 100vh;
   min-width: 100%;
   background-color: #f9f8f8;
+  padding-inline: 120px;
 }
 
 .add-button-container {
-  padding: 32px 64px;
+  padding-block: 64px;
 }
 
 button {
@@ -19,6 +20,10 @@ button {
   display: flex;
   gap: 1px;
   align-items: center;
+}
+
+::ng-deep div.mat-grid-tile-content {
+  display: block;
 }
 
 //   mat-drawer-content {

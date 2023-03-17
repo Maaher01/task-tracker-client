@@ -1,7 +1,13 @@
+mat-card {
+  padding-block: 24px;
+  border-radius: 10px;
+}
+
 mat-card-actions {
   padding: 18px 16px;
   display: flex;
-  gap: 6px;
+  justify-content: flex-end;
+  gap: 16px;
 }
 
 .update {

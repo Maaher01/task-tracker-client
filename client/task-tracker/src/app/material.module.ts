@@ -12,6 +12,19 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [],
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    DragDropModule,
+  ],
   exports: [
     CommonModule,
     MatToolbarModule,
