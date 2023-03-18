@@ -5,7 +5,7 @@
       New Task
     </button>
   </div>
-  <mat-grid-list cols="3" gutterSize="80px" cdkDropListGroup>
+  <mat-grid-list cols="3" gutterSize="24px" cdkDropListGroup>
     <mat-grid-tile>
       <app-tasks
         [tasks]="(taskService.todoTasks$ | async)!"

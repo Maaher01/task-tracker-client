@@ -2,11 +2,11 @@
   min-height: 100vh;
   min-width: 100%;
   background-color: #f9f8f8;
-  padding-inline: 120px;
+  padding: 0px 90px 0px 24px;
 }
 
 .add-button-container {
-  padding-block: 64px;
+  padding: 36px 0px 56px 0px;
 }
 
 button {
@@ -25,71 +25,3 @@ button {
 ::ng-deep div.mat-grid-tile-content {
   display: block;
 }
-
-//   mat-drawer-content {
-//     display: flex;
-//     flex-direction: row;
-//     padding: 0px 32px;
-//     gap: 24px;
-
-//       .cards {
-//         mat-card {
-//           background-color: white;
-//           border-radius: 6px;
-
-//           mat-card-title {
-//             color: black;
-//           }
-
-//           mat-card-subtitle {
-//             color: #b6b6b6;
-//             font-weight: 400;
-//             font-size: 14px;
-//           }
-//         }
-//       }
-//     }
-
-//     mat-grid-list {
-//       width: 33%;
-//       border-radius: 6px;
-
-//       .cards {
-//         mat-card {
-//           background-color: white;
-
-//           mat-card-title {
-//             color: black;
-//           }
-
-//           mat-card-subtitle {
-//             color: #b6b6b6;
-//             font-weight: 400;
-//             font-size: 14px;
-//           }
-//         }
-//       }
-//     }
-
-//     mat-grid-tile {
-//       width: 33%;
-//       border-radius: 6px;
-
-//       .cards {
-//         mat-card {
-//           background-color: white;
-
-//           mat-card-title {
-//             color: black;
-//           }
-
-//           mat-card-subtitle {
-//             color: #b6b6b6;
-//             font-weight: 400;
-//             font-size: 14px;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
