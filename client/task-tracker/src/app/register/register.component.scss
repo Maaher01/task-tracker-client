@@ -48,13 +48,8 @@
   width: 50%;
 }
 
-.heading {
-  display: flex;
-  flex-direction: column;
-}
-
-p {
-  font-size: 50px;
+.first-line {
+  font-size: 48px;
   font-weight: 600;
 }
 
@@ -77,7 +72,7 @@ p {
   padding: 24px 0px;
 }
 
-span {
+.app-name {
   font-weight: bold;
 }
 
@@ -98,4 +93,67 @@ span {
   cursor: pointer;
   color: #4d47c3;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 1536px) {
+  .form-content {
+    padding: 150px 125px;
+    width: 50%;
+  }
+
+  .side-content {
+    flex: 1;
+    padding: 225px 0px 0px 125px;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .form-content {
+    padding: 150px 100px;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    place-items: center;
+  }
+
+  .form-content {
+    max-width: 500px;
+    padding: 125px 0px;
+    width: 100%;
+  }
+
+  .side-content {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .form-content {
+    max-width: 325px;
+    padding: 75px 0px;
+  }
+
+  .op-text {
+    font-size: x-large;
+  }
+
+  .button {
+    padding: 10px 24px;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .form-content {
+    max-width: 250px;
+    padding: 40px 0px;
+  }
+
+  .button {
+    font-size: small;
+  }
 }

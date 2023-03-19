@@ -35,3 +35,17 @@ mat-toolbar {
   color: white;
   border-radius: 8px;
 }
+
+@media only screen and (max-width: 540px) {
+  mat-toolbar {
+    background-color: white;
+    padding: 0px 16px;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  mat-toolbar {
+    background-color: white;
+    padding: 0px 8px;
+  }
+}
