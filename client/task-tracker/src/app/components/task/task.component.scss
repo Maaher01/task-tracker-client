@@ -1,6 +1,6 @@
 mat-card {
   padding-block: 24px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 mat-card-actions {
@@ -26,4 +26,10 @@ mat-card-actions {
   font-size: 15px;
   font-weight: 500;
   border-radius: 4px;
+}
+
+@media only screen and (max-width: 1024px) {
+  mat-card-actions {
+    gap: 8px;
+  }
 }

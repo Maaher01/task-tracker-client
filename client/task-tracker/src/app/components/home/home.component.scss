@@ -22,6 +22,16 @@ button {
   align-items: center;
 }
 
+mat-grid-tile {
+  overflow: visible;
+}
+
 ::ng-deep div.mat-grid-tile-content {
   display: block;
+}
+
+@media only screen and (max-width: 1280px) {
+  .container {
+    padding: 0px 24px 0px 24px;
+  }
 }
