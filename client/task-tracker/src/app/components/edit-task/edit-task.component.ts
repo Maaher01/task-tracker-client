@@ -49,6 +49,7 @@ export class EditTaskComponent implements OnInit {
     this.taskService.editTask(payload, id).subscribe({
       next: () => {
         this.dialogRef.close();
+        window.location.reload();
       },
       error: (err) => {
         this.errorResponse = err.message;

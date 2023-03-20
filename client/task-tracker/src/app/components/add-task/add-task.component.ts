@@ -52,6 +52,7 @@ export class AddTaskComponent implements OnInit {
       .subscribe({
         next: () => {
           this.dialogRef.close();
+          window.location.reload();
         },
         error: (err) => {
           this.errorResponse = err.message;

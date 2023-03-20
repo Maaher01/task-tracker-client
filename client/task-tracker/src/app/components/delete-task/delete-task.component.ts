@@ -25,6 +25,7 @@ export class DeleteTaskComponent {
     this.taskService.deleteTask(id).subscribe({
       next: () => {
         this.dialogRef.close();
+        window.location.reload();
       },
       error: (err) => {
         this.errorResponse = err.message;
