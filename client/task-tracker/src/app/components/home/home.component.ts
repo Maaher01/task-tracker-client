@@ -30,6 +30,10 @@ export class HomeComponent implements OnInit {
     this.taskService.getUserTasks(this.currentUser.id).subscribe();
   }
 
+  onResize(event) {
+    this.breakpoint = event.target.innerWidth <= 768 ? 1 : 3;
+  }
+
   openDialogToAdd() {
     const dialogConfig = new MatDialogConfig();
 

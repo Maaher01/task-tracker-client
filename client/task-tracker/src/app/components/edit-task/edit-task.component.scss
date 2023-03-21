@@ -44,3 +44,17 @@ mat-dialog-actions {
   font-weight: 500;
   border-radius: 4px;
 }
+
+@media only screen and (max-width: 768px) {
+  mat-dialog-content {
+    width: 600px;
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  mat-dialog-content {
+    width: 500px;
+    height: 200px;
+  }
+}
