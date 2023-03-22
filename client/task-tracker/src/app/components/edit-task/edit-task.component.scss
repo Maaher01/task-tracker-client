@@ -1,7 +1,6 @@
 .dialog-header {
   display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
 }
@@ -37,8 +36,7 @@ mat-dialog-actions {
 }
 
 .cancel-button {
-  background-color: #dc2626;
-  color: white;
+  color: #22d3ee;
   padding: 6px 10px;
   font-size: 15px;
   font-weight: 500;
@@ -48,13 +46,17 @@ mat-dialog-actions {
 @media only screen and (max-width: 768px) {
   mat-dialog-content {
     width: 600px;
-    height: 200px;
   }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 600px) {
   mat-dialog-content {
-    width: 500px;
-    height: 200px;
+    width: 450px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  mat-dialog-content {
+    width: 300px;
   }
 }

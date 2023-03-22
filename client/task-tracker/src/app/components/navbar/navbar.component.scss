@@ -36,9 +36,28 @@ mat-toolbar {
   border-radius: 8px;
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 1200px) {
   mat-toolbar {
-    background-color: white;
+    padding: 0px 24px;
+  }
+
+  .userinfo {
+    gap: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  mat-toolbar {
+    padding: 0px 24px;
+  }
+
+  .userinfo {
+    gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  mat-toolbar {
     padding: 0px 16px;
   }
 
@@ -55,12 +74,6 @@ mat-toolbar {
   .logout {
     padding: 1px 8px;
     font-size: 12px;
-  }
-}
-
-@media only screen and (max-width: 280px) {
-  mat-toolbar {
-    background-color: white;
-    padding: 0px 8px;
+    font-weight: normal;
   }
 }

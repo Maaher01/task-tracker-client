@@ -35,3 +35,25 @@ mat-grid-tile {
     padding: 0px 24px 0px 24px;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  button {
+    padding: 8px 10px;
+    font-size: medium;
+    font-weight: 500;
+    gap: 1px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .add-button-container {
+    padding: 36px 0px 48px 0px;
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: small;
+    font-weight: 500;
+    gap: 1px;
+  }
+}

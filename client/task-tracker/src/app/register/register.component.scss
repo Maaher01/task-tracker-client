@@ -98,24 +98,24 @@
 @media only screen and (max-width: 1536px) {
   .form-content {
     padding: 150px 125px;
-    width: 50%;
   }
 
   .side-content {
-    flex: 1;
     padding: 225px 0px 0px 125px;
-    width: 50%;
   }
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1200px) {
   .form-content {
     padding: 150px 100px;
-    width: 50%;
+  }
+
+  .side-content {
+    padding: 225px 0px 0px 100px;
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 992px) {
   .content {
     flex-direction: column;
     place-items: center;
@@ -132,7 +132,7 @@
   }
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 400px) {
   .form-content {
     max-width: 325px;
     padding: 75px 0px;
@@ -144,16 +144,5 @@
 
   .button {
     padding: 10px 24px;
-  }
-}
-
-@media only screen and (max-width: 280px) {
-  .form-content {
-    max-width: 250px;
-    padding: 40px 0px;
-  }
-
-  .button {
-    font-size: small;
   }
 }

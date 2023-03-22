@@ -1,7 +1,6 @@
 .dialog-header {
   display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
 }
@@ -15,8 +14,14 @@
   border-radius: 4px;
 }
 
+::ng-deep .mat-dialog-container {
+  padding-bottom: 0px;
+}
+
 mat-dialog-content {
-  width: 400px;
+  display: flex;
+  flex-direction: column;
+  width: 700px;
   height: 115px;
 }
 
@@ -35,10 +40,32 @@ mat-dialog-actions {
 }
 
 .cancel-button {
-  background-color: #22d3ee;
-  color: white;
+  color: #22d3ee;
   padding: 6px 10px;
   font-size: 15px;
   font-weight: 500;
   border-radius: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+  mat-dialog-content {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  ::ng-deep .mat-dialog-container {
+    padding-top: 16px;
+  }
+
+  mat-dialog-content {
+    width: 300px;
+    height: 140px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  mat-dialog-content {
+    width: 300px;
+  }
 }
