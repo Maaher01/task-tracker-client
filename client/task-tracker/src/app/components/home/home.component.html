@@ -7,10 +7,8 @@
   </div>
   <mat-grid-list
     [cols]="breakpoint"
-    rowHeight="250px"
     (window:resize)="onResize($event)"
     gutterSize="24px"
-    cdkDropListGroup
   >
     <mat-grid-tile>
       <app-tasks

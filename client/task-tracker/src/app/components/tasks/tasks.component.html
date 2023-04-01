@@ -1,4 +1,4 @@
-<div cdkDropList class="card" (cdkDropListDropped)="drop($event)">
+<div class="card">
   <h2>{{ title }}</h2>
   <ng-container *ngFor="let task of tasks">
     <app-task [task]="task"></app-task>
