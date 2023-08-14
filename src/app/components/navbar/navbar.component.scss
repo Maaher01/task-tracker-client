@@ -1,6 +1,6 @@
 mat-toolbar {
   background-color: white;
-  padding: 0px 36px;
+  padding: 0px 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -25,7 +25,7 @@ mat-toolbar {
   font-size: medium;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 15px;
 }
 
 .logout {
@@ -36,27 +36,13 @@ mat-toolbar {
   border-radius: 8px;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1182px) {
   mat-toolbar {
     padding: 0px 24px;
   }
-
-  .userinfo {
-    gap: 20px;
-  }
 }
 
-@media only screen and (max-width: 600px) {
-  mat-toolbar {
-    padding: 0px 24px;
-  }
-
-  .userinfo {
-    gap: 10px;
-  }
-}
-
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 550px) {
   mat-toolbar {
     padding: 0px 16px;
   }
@@ -66,7 +52,7 @@ mat-toolbar {
   }
 
   .userinfo {
-    font-size: small;
+    font-size: 11px;
     font-weight: bold;
     gap: 8px;
   }

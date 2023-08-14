@@ -5,28 +5,15 @@
       New Task
     </button>
   </div>
-  <mat-grid-list
-    [cols]="breakpoint"
-    (window:resize)="onResize($event)"
-    gutterSize="24px"
-  >
-    <mat-grid-tile>
-      <app-tasks
-        [tasks]="(taskService.todoTasks$ | async)!"
-        [title]="'To Do'"
-      ></app-tasks>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <app-tasks
-        [tasks]="(taskService.ongoingTasks$ | async)!"
-        [title]="'Ongoing'"
-      ></app-tasks>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <app-tasks
-        [tasks]="(taskService.doneTasks$ | async)!"
-        [title]="'Done'"
-      ></app-tasks>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div class="task-cols">
+    <div class="task-col">
+      <app-tasks [tasks]="(taskService.todoTasks$ | async)!" [title]="'To Do'"></app-tasks>
+    </div>
+    <div class="task-col">
+      <app-tasks [tasks]="(taskService.ongoingTasks$ | async)!" [title]="'Ongoing'"></app-tasks>
+    </div>
+    <div class="task-col">
+      <app-tasks [tasks]="(taskService.doneTasks$ | async)!" [title]="'Done'"></app-tasks>
+    </div>
+  </div>
 </div>

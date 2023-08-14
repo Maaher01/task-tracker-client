@@ -3,11 +3,15 @@ mat-card {
   border-radius: 8px;
 }
 
+mat-card-subtitle {
+  margin-top: 0px;
+}
+
 mat-card-actions {
   padding: 18px 16px;
   display: flex;
-  justify-content: flex-end;
-  gap: 16px;
+  justify-content: flex-start;
+  gap: 5px;
 }
 
 .update {
@@ -26,10 +30,4 @@ mat-card-actions {
   font-size: 15px;
   font-weight: 500;
   border-radius: 4px;
-}
-
-@media only screen and (max-width: 992px) {
-  mat-card-actions {
-    gap: 8px;
-  }
 }

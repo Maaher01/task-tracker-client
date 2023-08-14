@@ -4,7 +4,7 @@
     <span class="title">Task Tracker</span>
   </div>
   <div class="userinfo" *ngIf="authService.currentUser$ | async; let user">
-    <span>{{ user.firstname + " " + user.lastname }}</span>
+    <span>Welcome, {{ user.firstname }}</span>
     <button mat-stroked-button class="logout" (click)="logout()">Logout</button>
   </div>
 </mat-toolbar>
