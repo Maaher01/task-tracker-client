@@ -1,17 +1,31 @@
+.card {
+  background-color: white;
+  max-width: 570px;
+  display: flex;
+  align-items: stretch;
+}
+
 mat-card {
   padding-block: 24px;
   border-radius: 8px;
-}
-
-mat-card-subtitle {
-  margin-top: 0px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 mat-card-actions {
-  padding: 18px 16px;
+  padding: 0 16px;
   display: flex;
   justify-content: flex-start;
   gap: 5px;
+}
+
+p {
+  color: #c8c8c8;
+  font-size: 15px;
+  padding: 0px 16px;
+  word-wrap: break-word;
 }
 
 .update {
